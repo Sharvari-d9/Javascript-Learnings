@@ -1,9 +1,9 @@
-let n = 2;
+var n = 2;
 function square(num){
-    let ans = num * num;
+    var ans = num * num;
     return ans;
 }
 
-let square2 = square(n);
-let square4 = square(4);
+var square2 = square(n);
+var square4 = square(4);
 console.log(square4);
