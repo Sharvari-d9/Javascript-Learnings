@@ -1,0 +1,17 @@
+Global Execution context(GEC)
+
+Function specific Execution Context
+
+When code execution starts first the global execution context is set which has memory and code component.
+
+- Initially all the variables have undefined as their value and fucntions would be stored as is in memory in component.
+- for every function a function specific new execution context is created.
+- once the fucntion execution is completed the execution context is removed
+- once the complete javascript code runs,the global execution context is also removed
+
+Call Stack:
+- JS uses call stack to manage creation, deletion of new execution context such as for functions,
+  and transfer of control between these contexts
+
+- First entry in the Stack is the GEC
+- Contains the order of the executions of all the execution contexts.
