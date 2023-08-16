@@ -1,8 +1,0 @@
-Execution Context.
-
-Components : 
-
-    Memory Component - Contains Variables, functions and its values 
-    Code Component - Contains threads of execution
-
-- Synchronous single threaded language
