@@ -8,7 +8,7 @@
 /**  variable hoisted but not assisgned yet in a separate space. 
 The time between this variable is hoisted and assigned value in next line is called as temporal dead zone.
 when we are trying to access the assigned variable it throws reference error.
-Variables in temporal dead zone cannot be assigned.
+Variables in temporal dead zone cannot be accessed.
 */
 console.log(a); // Reference Error as a cant be accessed before initializing
 // Part 1
