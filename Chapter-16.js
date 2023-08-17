@@ -17,7 +17,7 @@
  */
 
 /**
- * Compliation
+ * Compilation
  * 
  * Just in-time compilation
  * 
