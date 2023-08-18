@@ -52,7 +52,7 @@ var getfunc = demo(passedfunc);
 console.log(getfunc);
 /**
  * also called as first class citizen
- * Here the ability to pass a function as an argument, have a function as a parameter and return a function as well is called as first class function
+ * Here the ability to pass a function as an argument, have a function as a parameter or return a function as well is called as first class function
  */
 
 //Arrow Functions
