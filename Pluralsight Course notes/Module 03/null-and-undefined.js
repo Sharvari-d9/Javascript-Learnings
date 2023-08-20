@@ -11,3 +11,7 @@
 let x;
 console.log(x);
 console.log(typeof(x));
+
+let manager = null;
+console.log(manager);
+console.log(typeof(manager));  // object -  topic of contrast as to why null is type of object
