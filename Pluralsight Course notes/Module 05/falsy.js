@@ -8,5 +8,3 @@ isTruthy("val2", 1);
 isTruthy("val3", -1);
 isTruthy("val4", NaN);
 isTruthy("val5", 0n);
-
-
