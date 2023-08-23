@@ -20,7 +20,7 @@ if(!lastName){
 
 employee.lastName = lastName;
 
-let startDateYEar = prompt("Employee start year (1900-2023): ");
+let startDateYEar = prompt("Employee start year (1990-2023): ");
 startDateYEar = Number(startDateYEar);
 
 if(!Number.isInteger(startDateYEar)){
