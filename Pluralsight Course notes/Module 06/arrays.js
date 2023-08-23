@@ -10,3 +10,6 @@ console.log(names.length);
 
 console.log(names[1]);
 
+//Searching values
+console.log(names.includes("ert"));
+console.log(names.includes("Sharvari"));
