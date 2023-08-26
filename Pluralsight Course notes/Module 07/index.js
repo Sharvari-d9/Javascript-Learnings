@@ -10,8 +10,9 @@ const logEmployee = (employee) => {
 
 function getInput(promptText,validator, transformer){
     let value = prompt(promptText);
+    console.log(validator);
     if(validator && ! validator(value)){
-        console.error(`--Inalid input`);
+        console.error(`--Invalid input`);
         // process.exit(1);
         //using recursion to get input again and again till a valid input is entered
         return getInput(promptText,validator,transformer);
@@ -113,9 +114,9 @@ function addEmployees(){
    
    employee.firstName = getInput("First Name: ", isStringInputValid); //passing the prompt and whole function (not calling the function)
    employee.lastName  = getInput("Last Name: ", isStringInputValid);
-   let startDateYear = getInput("Emplpoyee Start Year(1990-2023: ",isIntegerValid(1990,2023));
+   let startDateYear = getInput("Employee Start Year(1990-2023: ",isIntegerValid(1990,2023));
    let startDateMonth = getInput("Employee sart month Year: ",isIntegerValid(1,12));
-   let startDateDay = getInput("Enployee start Date Day(1-31): ",isIntegerValid(1,31));
+   let startDateDay = getInput("Employee start Date Day(1-31): ",isIntegerValid(1,31));
    employee.startDate = new Date(startDateYear,startDateMonth,startDateDay);
    employee.isActive = getInput("Is employee active (yes or no): ",isBooleanInputValid,i => (i==="yes")); //inline arrow function (compact way to have function), we dont even need () function paranthesis if there is a single parameter
     // Output Employee JSON
@@ -153,6 +154,6 @@ switch(command){
         break;
         
     default:
-        console.log(`Unsupprted command. Exitig....`);
+        console.log(`Unsupported command. Exiting....`);
         process.exit(1);    
 }
