@@ -10,11 +10,13 @@ const logEmployee = (employee) => {
 
 function getInput(promptText,validator, transformer){
     let value = prompt(promptText);
-    if(validator && !validator(value)){
+    if(validator && ! validator(value)){
         console.error(`--Inalid input`);
-        process.exit(1);
+        // process.exit(1);
+        //using recursion to get input again and again till a valid input is entered
+        return getInput(promptText,validator,transformer);
     }
-    if(transformer){
+    if(transformer){ // a complete arrow function is passed here and then we pass the value as parameter for i in the arrow function
         return transformer(value);
     }
     return value;
@@ -34,28 +36,41 @@ const isBooleanInputValid = function(input){
     return (input === "yes" || input === "no");
 }
 
-const isStartYearValid = function (input){
-    let numValue = Number(input);
-    if(!Number.isInteger(numValue)|| numValue < 1990 || numValue > 2023){
-        return false;
-    }
-    return true;
-}
+// const isStartYearValid = function (input){
+//     let numValue = Number(input);
+//     if(!Number.isInteger(numValue)|| numValue < 1990 || numValue > 2023){
+//         return false;
+//     }
+//     return true;
+// }
 
-const isStartMonthValid = function(input){
-    let numValue = Number(input);
-    if(!Number.isInteger(numValue) || numValue < 1 || numValue >12){
-        return false;
-    }
-    return true;
-}
+// const isStartMonthValid = function(input){
+//     let numValue = Number(input);
+//     if(!Number.isInteger(numValue) || numValue < 1 || numValue >12){
+//         return false;
+//     }
+//     return true;
+// }
 
-const isStartDayValid = function(input){
-    let numValue = Number(input);
-    if(!Number.isInteger(numValue)|| numValue <1 || numValue > 31){
-        return false;
+// const isStartDayValid = function(input){
+//     let numValue = Number(input);
+//     if(!Number.isInteger(numValue)|| numValue <1 || numValue > 31){
+//         return false;
+//     }
+//     return true;
+// }
+/**
+ * converting these above 3 similar validator function to one using higher order functions
+ */
+const isIntegerValid = (min,max) =>{
+    return (input) => {
+        let numValue = Number(input);
+        if(!Number.isInteger(numValue)|| numValue <min || numValue > max){
+            return false;
+        }
+        return true;
     }
-    return true;
+
 }
 // execution Functions
 function searchByName(){
@@ -98,11 +113,11 @@ function addEmployees(){
    
    employee.firstName = getInput("First Name: ", isStringInputValid); //passing the prompt and whole function (not calling the function)
    employee.lastName  = getInput("Last Name: ", isStringInputValid);
-   let startDateYear = getInput("Emplpoyee Start Year(1990-2023: ",isStartYearValid);
-   let startDateMonth = getInput("Employee sart month Year: ",isStartMonthValid);
-   let startDateDay = getInput("Enployee start Date Day(1-31",isStartDayValid);
+   let startDateYear = getInput("Emplpoyee Start Year(1990-2023: ",isIntegerValid(1990,2023));
+   let startDateMonth = getInput("Employee sart month Year: ",isIntegerValid(1,12));
+   let startDateDay = getInput("Enployee start Date Day(1-31): ",isIntegerValid(1,31));
    employee.startDate = new Date(startDateYear,startDateMonth,startDateDay);
-   employee.isActive = getInput("Is employee active (yes or no): ",isBooleanInputValid,i => (i==="yes")); //inline arrow function (compact way to have function), we dont even need () function paranthesis
+   employee.isActive = getInput("Is employee active (yes or no): ",isBooleanInputValid,i => (i==="yes")); //inline arrow function (compact way to have function), we dont even need () function paranthesis if there is a single parameter
     // Output Employee JSON
     const json = JSON.stringify(employee, null, 2);
     console.log(`Employee: ${json}`);
