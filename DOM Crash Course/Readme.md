@@ -12,3 +12,10 @@ _DOM Tree_
 - head and body - same level child nodes
 - head has title
 - body has p and h1 
+
+
+_Event Probagation_
+
+- event capture
+- target
+- event Bubbling
